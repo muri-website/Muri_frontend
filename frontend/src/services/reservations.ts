@@ -27,9 +27,9 @@ export interface CreateFoglalas {
 }
 
 export const reservationService = {
-  getAll: async (queryParams?: FoglalasQuery): Promise<Foglalas[]> => {
+  getAll: async (query?: FoglalasQuery): Promise<Foglalas[]> => {
     const response = await api.get('/foglalasok/admin', {
-      params: queryParams,
+      params: query ? query : undefined,
     });
     return response.data;
   },
@@ -39,8 +39,8 @@ export const reservationService = {
     return response.data;
   },
 
-  rejectStatus: async (id: number) => {
-    const response = await api.put(`/foglalasok/admin/${id}/reject`);
+  rejectStatus: async (id: number, reason: string) => {
+    const response = await api.put(`/foglalasok/admin/${id}/reject`, { reason });
     return response.data;
   },
 
@@ -48,8 +48,8 @@ export const reservationService = {
     await api.delete(`/foglalasok/admin/${id}`);
   },
 
-  create: async (data: CreateFoglalas) => {
-    const response = await api.post('/foglalasok', data);
+  create: async (foglalas: CreateFoglalas) => {
+    const response = await api.post('/foglalasok', foglalas);
     return response.data;
   }
 };

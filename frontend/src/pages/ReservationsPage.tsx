@@ -72,6 +72,7 @@ const ReservationsPage: React.FC = () => {
   }, []);
 
   const handleApprove = async (id: number) => {
+    setErrorMessage(null);
     try {
       await reservationService.approveStatus(id);
       fetchReservations();
@@ -81,8 +82,13 @@ const ReservationsPage: React.FC = () => {
   };
 
   const handleReject = async (id: number) => {
+    const reason = window.prompt("Kérlek, add meg az elutasítás indokát:");
+    if (reason === null || reason.trim() === "") {
+      return;
+    }
+    setErrorMessage(null);
     try {
-      await reservationService.rejectStatus(id);
+      await reservationService.rejectStatus(id, reason);
       fetchReservations();
     } catch (error: unknown) {
       setErrorMessage(getBackendErrorMessage(error));
@@ -91,6 +97,7 @@ const ReservationsPage: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     if (confirm('Biztosan törölni szeretnéd ezt a foglalást?')) {
+      setErrorMessage(null);
       try {
         await reservationService.delete(id);
         fetchReservations();

@@ -44,9 +44,7 @@ export const DrinksPage: React.FC = () => {
         setLoading(true);
         setErrorMessage(null);
         try {
-            const data = await drinkService.getAll({
-                text: textFilter || undefined
-            });
+            const data = await drinkService.getAll(textFilter || undefined);
             setDrinks(data);
         } catch (error: unknown) {
             setErrorMessage(getBackendErrorMessage(error));
