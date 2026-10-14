@@ -2,20 +2,9 @@ import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from './pages/LoginPage'
 import { ProtectedRoute } from './components/ProtectedRoute'
-
-const AdminDashboard = () => {
-  const handleLogout = () => {
-    localStorage.removeItem('authToken');
-    window.location.href = '/login';
-  };
-  return (
-    <div style={{ padding: '2rem', color: '#fff' }}>
-      <h1>Muri Admin Dashboard</h1>
-      <p>Sikeresen beléptél!</p>
-      <button onClick={handleLogout}>Kijelentkezés</button>
-    </div>
-  );
-};
+import { AdminLayout } from './pages/AdminLayout';
+import ReservationsPage from './pages/ReservationsPage';
+import DrinksPage from './pages/DrinksPage';
 
 function App() {
   return (
@@ -24,12 +13,17 @@ function App() {
         {/* Nyilvános bejelentkező oldal */}
         <Route path="/login" element={<LoginPage />} />
 
-        {/* Védett Admin útvonalak */}
+        {/* Védett Admin útvonalak a közös kerettel */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route element={<AdminLayout />}>
+            <Route path="/admin/foglalasok" element={<ReservationsPage />} />
+            <Route path="/admin/italok" element={<DrinksPage />} />
+            {/* Alapértelmezett átirányítás a foglalásokra */}
+            <Route path="/admin" element={<Navigate to="/admin/foglalasok" replace />} />
+          </Route>
         </Route>
 
-        {/* Bármilyen más útvonal esetén átirányítás */}
+        {/* Minden más útvonal átirányítása a login-ra */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
