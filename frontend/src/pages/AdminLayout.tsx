@@ -15,8 +15,7 @@ export const AdminLayout: React.FC = () => {
     const navItems = [
         { path: '/admin/foglalasok', label: '📅 Foglalások', name: 'Foglalások' },
         { path: '/admin/italok', label: '🍺 Itallap', name: 'Itallap' },
-        // Későbbi modulok:
-        // { path: '/admin/esemenyek', label: '🎉 Események', name: 'Események' },
+        { path: '/admin/esemenyek', label: '🎉 Események', name: 'Események' },
     ];
 
     return (
@@ -47,8 +46,8 @@ export const AdminLayout: React.FC = () => {
                                     to={item.path}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${isActive
-                                            ? 'bg-green-600/20 text-green-400 border border-green-500/30'
-                                            : 'text-neutral-400 hover:bg-neutral-800 hover:text-white'
+                                        ? 'bg-green-600/20 text-green-400 border border-green-500/30'
+                                        : 'text-neutral-400 hover:bg-neutral-800 hover:text-white'
                                         }`}
                                 >
                                     {item.label}

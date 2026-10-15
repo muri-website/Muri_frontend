@@ -44,9 +44,7 @@ export const DrinksPage: React.FC = () => {
         setLoading(true);
         setErrorMessage(null);
         try {
-            const data = await drinkService.getAll({
-                text: textFilter || undefined
-            });
+            const data = await drinkService.getAll(textFilter || undefined);
             setDrinks(data);
         } catch (error: unknown) {
             setErrorMessage(getBackendErrorMessage(error));
@@ -97,16 +95,31 @@ export const DrinksPage: React.FC = () => {
         try {
             if (drinkType === 'sor') {
                 const payload: CreateSor = {
-                    ...sorData,
-                    isLimited,
-                    file,
+                    nevHu: sorData.nevHu,
+                    nevEn: sorData.nevEn,
+                    nevDe: sorData.nevDe,
+                    leirasHu: sorData.leirasHu,
+                    leirasEn: sorData.leirasEn,
+                    leirasDe: sorData.leirasDe,
+                    tipus: sorData.tipus,
+                    alkoholtartalom: sorData.alkoholtartalom,
+                    isLimited: isLimited,
+                    file: file!,
                 };
                 await drinkService.createSor(payload);
             } else {
                 const payload: CreateKoktel = {
-                    ...koktelData,
-                    isLimited,
-                    file,
+                    nevHu: koktelData.nevHu,
+                    nevEn: koktelData.nevEn,
+                    nevDe: koktelData.nevDe,
+                    osszetevokHu: koktelData.osszetevokHu,
+                    osszetevokEn: koktelData.osszetevokEn,
+                    osszetevokDe: koktelData.osszetevokDe,
+                    leirasHu: koktelData.leirasHu,
+                    leirasEn: koktelData.leirasEn,
+                    leirasDe: koktelData.leirasDe,
+                    isLimited: isLimited,
+                    file: file!,
                 };
                 await drinkService.createKoktel(payload);
             }
@@ -143,7 +156,7 @@ export const DrinksPage: React.FC = () => {
                     placeholder="Keresés név alapján..."
                     value={textFilter}
                     onChange={(e) => setTextFilter(e.target.value)}
-                    className="w-full px-3 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-green-500"
+                    className="w-full sm:col-span-2 px-3 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-green-500"
                 />
                 <button
                     onClick={fetchDrinks}
