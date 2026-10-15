@@ -9,8 +9,8 @@ import EventsPage from './pages/EventsPage';
 import TablesPage from './pages/TablesPage';
 import OpeningHoursPage from './pages/OpeningHoursPage';
 import NotFound from './pages/NotFound';
-import { SpeedInsights } from '@vercel/speed-insights/nuxt/runtime';
-import { Analytics } from '@vercel/analytics/nuxt/runtime';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
