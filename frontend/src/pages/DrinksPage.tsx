@@ -138,7 +138,7 @@ export const DrinksPage: React.FC = () => {
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-green-500">Itallap Kezelése</h1>
                 <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => (setIsModalOpen(true), setErrorMessage(null))}
                     className="px-4 py-2 bg-green-600 hover:bg-green-700 font-semibold rounded-lg transition-colors cursor-pointer"
                 >
                     + Új Ital Hozzáadása

@@ -6,6 +6,7 @@ import { AdminLayout } from './pages/AdminLayout';
 import ReservationsPage from './pages/ReservationsPage';
 import DrinksPage from './pages/DrinksPage';
 import EventsPage from './pages/EventsPage';
+import TablesPage from './pages/TablesPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/admin/foglalasok" element={<ReservationsPage />} />
             <Route path="/admin/italok" element={<DrinksPage />} />
             <Route path="/admin/esemenyek" element={<EventsPage />} />
+            <Route path="/admin/asztalok" element={<TablesPage />} />
             {/* Alapértelmezett átirányítás a foglalásokra */}
             <Route path="/admin" element={<Navigate to="/admin/foglalasok" replace />} />
           </Route>
