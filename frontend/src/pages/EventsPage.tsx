@@ -158,12 +158,12 @@ export const EventsPage: React.FC = () => {
                     placeholder="Keresés cím alapján..."
                     value={textFilter}
                     onChange={(e) => setTextFilter(e.target.value)}
-                    className="w-full sm:col-span-2 px-3 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-green-500 text-sm"
+                    className="w-full sm:col-span-2 px-3 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-green-500"
                 />
                 <button
                     onClick={fetchEvents}
                     disabled={loading}
-                    className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition-colors cursor-pointer disabled:opacity-50 text-sm"
+                    className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition-colors cursor-pointer disabled:opacity-50"
                 >
                     {loading ? 'Keresés...' : 'Szűrés'}
                 </button>
@@ -172,22 +172,44 @@ export const EventsPage: React.FC = () => {
                 <table className="w-full text-left border-collapse text-sm text-neutral-300">
                     <thead className="bg-neutral-950 text-neutral-400 uppercase text-xs border-b border-neutral-700">
                         <tr>
-                            <th className="p-4">Cím (HU)</th>
+                            <th className="p-4">Cím</th>
+                            <th className="p-4">Kezdet</th>
+                            <th className="p-4">Vég</th>
                             <th className="p-4">Létrehozva</th>
-                            <th className="p-4 text-center">Műveletek</th>
+                            <th className="p-4 text-center">Művelet</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-700">
                         {events.length === 0 ? (
                             <tr>
                                 <td colSpan={3} className="p-6 text-center text-neutral-500">
-                                    {loading ? 'Betöltés...' : 'Nincsenek események.'}
+                                    {loading ? 'Adatok betöltése...' : 'Nincs a feltételeknek megfelelő esemény.'}
                                 </td>
                             </tr>
                         ) : (
                             events.map((item) => (
                                 <tr key={item.id} className="hover:bg-neutral-750 transition-colors">
                                     <td className="p-4 font-semibold text-white">{item.cimHu}</td>
+                                    <td className="p-4 text-neutral-400">
+                                        {item.kezdet ? (
+                                            new Date(item.kezdet).toLocaleString('hu-HU', {
+                                                dateStyle: 'short',
+                                                timeStyle: 'short',
+                                            })
+                                        ) : (
+                                            <span className="text-neutral-500 italic">-</span>
+                                        )}
+                                    </td>
+                                    <td className="p-4 text-neutral-400">
+                                        {item.veg ? (
+                                            new Date(item.veg).toLocaleString('hu-HU', {
+                                                dateStyle: 'short',
+                                                timeStyle: 'short',
+                                            })
+                                        ) : (
+                                            <span className="text-neutral-500 italic">-</span>
+                                        )}
+                                    </td>
                                     <td className="p-4 text-neutral-400">
                                         {new Date(item.createdAt).toLocaleString('hu-HU', {
                                             dateStyle: 'short',

@@ -97,7 +97,7 @@ export const OpeningHoursPage: React.FC = () => {
     return (
         <div className="p-6 bg-neutral-900 min-h-screen text-white">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold text-green-500">Nyitvatartás Beállítása</h1>
+                <h1 className="text-2xl font-bold text-green-500">Nyitvatartás Kezelése</h1>
             </div>
             {errorMessage && (
                 <div className="mb-6 p-4 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-sm flex justify-between items-center">
@@ -160,7 +160,7 @@ export const OpeningHoursPage: React.FC = () => {
                                     <td className="p-4 text-center">
                                         <button
                                             onClick={() => handleEditClick(item)}
-                                            className="px-3 py-1 bg-green-600/20 hover:bg-green-600 text-green-400 hover:text-white border border-green-500/30 rounded text-xs transition-colors cursor-pointer"
+                                            className="px-3 py-1 bg-neutral-900 hover:bg-neutral-700 text-white border border-neutral-700 rounded text-xs transition-colors cursor-pointer"
                                         >
                                             Szerkesztés
                                         </button>

@@ -143,7 +143,7 @@ export const TablesPage: React.FC = () => {
           onClick={() => (setIsModalOpen(true), setErrorMessage(null))}
           className="px-4 py-2 bg-green-600 hover:bg-green-700 font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-2"
         >
-          <span>+</span> Új Asztal Hozzáadása
+          <span>+</span> Új Asztal
         </button>
       </div>
       {errorMessage && (
@@ -183,14 +183,14 @@ export const TablesPage: React.FC = () => {
               <th className="p-4">Férőhely (fő/asztal)</th>
               <th className="p-4">Darabszám</th>
               <th className="p-4 text-center">Darabszám Módosítása</th>
-              <th className="p-4 text-center">Műveletek</th>
+              <th className="p-4 text-center">Művelet</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-700">
             {tables.length === 0 ? (
               <tr>
                 <td colSpan={5} className="p-6 text-center text-neutral-500">
-                  {loading ? 'Betöltés...' : 'Nincsenek rögzített asztalok.'}
+                  {loading ? 'Adatok betöltése...' : 'Nincsenek rögzített asztalok.'}
                 </td>
               </tr>
             ) : (

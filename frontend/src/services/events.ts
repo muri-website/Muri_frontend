@@ -16,6 +16,8 @@ export interface Esemeny {
     id: number;
     cimHu: string;
     createdAt: Date;
+    kezdet?: Date;
+    veg?: Date;
 }
 
 export const eventService = {

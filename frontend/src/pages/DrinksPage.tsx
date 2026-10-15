@@ -141,7 +141,7 @@ export const DrinksPage: React.FC = () => {
                     onClick={() => (setIsModalOpen(true), setErrorMessage(null))}
                     className="px-4 py-2 bg-green-600 hover:bg-green-700 font-semibold rounded-lg transition-colors cursor-pointer"
                 >
-                    + Új Ital Hozzáadása
+                    + Új Ital
                 </button>
             </div>
             {errorMessage && (
@@ -160,9 +160,10 @@ export const DrinksPage: React.FC = () => {
                 />
                 <button
                     onClick={fetchDrinks}
-                    className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition-colors cursor-pointer"
+                    disabled={loading}
+                    className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition-colors cursor-pointer disabled:opacity-50"
                 >
-                    Szűrés
+                    {loading ? 'Keresés...' : 'Szűrés'}
                 </button>
             </div>
             <div className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden">
@@ -172,14 +173,14 @@ export const DrinksPage: React.FC = () => {
                             <th className="p-4">Név</th>
                             <th className="p-4">Típus</th>
                             <th className="p-4">Kiadás</th>
-                            <th className="p-4 text-center">Műveletek</th>
+                            <th className="p-4 text-center">Művelet</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-700">
                         {drinks.length === 0 ? (
                             <tr>
                                 <td colSpan={4} className="p-6 text-center text-neutral-500">
-                                    {loading ? 'Betöltés...' : 'Nincsenek italok.'}
+                                    {loading ? 'Adatok betöltése...' : 'Nincs a feltételeknek megfelelő ital.'}
                                 </td>
                             </tr>
                         ) : (
