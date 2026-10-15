@@ -182,7 +182,7 @@ export const EventsPage: React.FC = () => {
                     <tbody className="divide-y divide-neutral-700">
                         {events.length === 0 ? (
                             <tr>
-                                <td colSpan={3} className="p-6 text-center text-neutral-500">
+                                <td colSpan={5} className="p-6 text-center text-neutral-500">
                                     {loading ? 'Adatok betöltése...' : 'Nincs a feltételeknek megfelelő esemény.'}
                                 </td>
                             </tr>
