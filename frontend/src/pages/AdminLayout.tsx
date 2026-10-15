@@ -17,6 +17,7 @@ export const AdminLayout: React.FC = () => {
         { path: '/admin/italok', label: '🍺 Itallap', name: 'Itallap' },
         { path: '/admin/esemenyek', label: '🎉 Események', name: 'Események' },
         { path: '/admin/asztalok', label: '🪑 Asztalok', name: 'Asztalok' },
+        { path: '/admin/nyitvatartas', label: '🕒 Nyitvatartás', name: 'Nyitvatartás' }
     ];
 
     return (

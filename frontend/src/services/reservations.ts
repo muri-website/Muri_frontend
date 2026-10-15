@@ -23,7 +23,7 @@ export interface CreateFoglalas {
   fo: number;
   mikor: string;
   szektorId: number;
-  megjegyzés: string;
+  megjegyzés?: string;
 }
 
 export const reservationService = {
