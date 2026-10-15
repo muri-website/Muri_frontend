@@ -7,6 +7,8 @@ import ReservationsPage from './pages/ReservationsPage';
 import DrinksPage from './pages/DrinksPage';
 import EventsPage from './pages/EventsPage';
 import TablesPage from './pages/TablesPage';
+import OpeningHoursPage from './pages/OpeningHoursPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Routes>
         {/* Nyilvános oldalak */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/not-found" element={<NotFound />} />
 
         {/* Védett Admin útvonalak */}
         <Route element={<ProtectedRoute />}>
@@ -22,13 +25,13 @@ function App() {
             <Route path="/admin/italok" element={<DrinksPage />} />
             <Route path="/admin/esemenyek" element={<EventsPage />} />
             <Route path="/admin/asztalok" element={<TablesPage />} />
-            {/* Alapértelmezett átirányítás a foglalásokra */}
+            <Route path="/admin/nyitvatartas" element={<OpeningHoursPage />} />
             <Route path="/admin" element={<Navigate to="/admin/foglalasok" replace />} />
           </Route>
         </Route>
 
-        {/* Minden más útvonal átirányítása a login-ra */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/* Minden más útvonal átirányítása a not-found-ra */}
+        <Route path="*" element={<Navigate to="/not-found" replace />} />
       </Routes>
     </BrowserRouter>
   );
