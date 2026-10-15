@@ -138,7 +138,7 @@ const ReservationsPage: React.FC = () => {
           onClick={() => (setIsModalOpen(true), setErrorMessage(null))}
           className="px-4 py-2 bg-green-600 hover:bg-green-700 font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-2"
         >
-          <span>+</span> Új foglalás
+          <span>+</span> Új Foglalás
         </button>
       </div>
       {errorMessage && (
@@ -184,7 +184,7 @@ const ReservationsPage: React.FC = () => {
           <button
             onClick={fetchReservations}
             disabled={loading}
-            className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors cursor-pointer"
+            className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors cursor-pointer disabled:opacity-50"
           >
             {loading ? 'Keresés...' : 'Szűrés'}
           </button>
@@ -254,7 +254,7 @@ const ReservationsPage: React.FC = () => {
                       )}
                       <button
                         onClick={() => handleDelete(res.id)}
-                        className="px-3 py-1 bg-neutral-700 hover:bg-red-600 text-white rounded text-xs transition-colors cursor-pointer"
+                        className="px-3 py-1 bg-red-600/20 hover:bg-red-600 text-red-400 hover:text-white border border-red-500/30 rounded text-xs transition-colors cursor-pointer"
                       >
                         Törlés
                       </button>
