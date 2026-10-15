@@ -17,7 +17,7 @@ const ReservationsPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [formData, setFormData] = useState<CreateFoglalas>({
     nev: '',
-    email: 'netgyormuri@gmail.com',
+    email: 'admin@gyormuri.hu',
     fo: 2,
     mikor: '',
     szektorId: 1,
@@ -116,7 +116,7 @@ const ReservationsPage: React.FC = () => {
       setIsModalOpen(false);
       setFormData({
         nev: '',
-        email: 'netgyormuri@gmail.com',
+        email: 'admin@gyormuri.hu',
         fo: 2,
         mikor: '',
         szektorId: 1,

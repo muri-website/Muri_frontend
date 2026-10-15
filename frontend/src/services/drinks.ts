@@ -62,7 +62,11 @@ export const drinkService = {
     formData.append('alkoholtartalom', model.alkoholtartalom.toString());
     formData.append('isLimited', model.isLimited.toString());
     formData.append('file', model.file);
-    const response = await api.post('/piak/admin/sor', formData);
+    const response = await api.post('/piak/admin/sor', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
     return response.data;
   },
 
@@ -79,7 +83,11 @@ export const drinkService = {
     formData.append('leirasDe', model.leirasDe);
     formData.append('isLimited', model.isLimited.toString());
     formData.append('file', model.file);
-    const response = await api.post('/piak/admin/koktel', formData);
+    const response = await api.post('/piak/admin/koktel', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
     return response.data;
   },
 };

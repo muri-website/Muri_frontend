@@ -28,6 +28,9 @@ export interface CreateFoglalas {
 
 export const reservationService = {
   getAll: async (query?: FoglalasQuery): Promise<Foglalas[]> => {
+    if (query?.mikor) {
+      query.mikor = new Date(query.mikor).toISOString();
+    }
     const response = await api.get('/foglalasok/admin', {
       params: query ? query : undefined,
     });

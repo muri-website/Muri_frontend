@@ -29,19 +29,19 @@ export const eventService = {
     create: async (model: CreateEsemeny) => {
         const formData = new FormData();
         formData.append('cimHu', model.cimHu);
-        if (model.cimEn) {
+        if (model.cimEn && model.cimEn.trim() !== '') {
             formData.append('cimEn', model.cimEn);
         }
-        if (model.cimDe) {
+        if (model.cimDe && model.cimDe.trim() !== '') {
             formData.append('cimDe', model.cimDe);
         }
-        if (model.leirasHu) {
+        if (model.leirasHu && model.leirasHu.trim() !== '') {
             formData.append('leirasHu', model.leirasHu);
         }
-        if (model.leirasEn) {
+        if (model.leirasEn && model.leirasEn.trim() !== '') {
             formData.append('leirasEn', model.leirasEn);
         }
-        if (model.leirasDe) {
+        if (model.leirasDe && model.leirasDe.trim() !== '') {
             formData.append('leirasDe', model.leirasDe);
         }
         if (model.kezdet) {
@@ -53,7 +53,11 @@ export const eventService = {
         if (model.kep) {
             formData.append('kep', model.kep);
         }
-        const response = await api.post('/esemenyek/admin', formData);
+        const response = await api.post('/esemenyek/admin', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
         return response.data;
     },
 
