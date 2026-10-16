@@ -43,7 +43,7 @@ export const reservationService = {
   },
 
   rejectStatus: async (id: number, reason: string) => {
-    const response = await api.put(`/foglalasok/admin/${id}/reject`, { reason });
+    const response = await api.put(`/foglalasok/admin/${id}/reject`, reason);
     return response.data;
   },
 

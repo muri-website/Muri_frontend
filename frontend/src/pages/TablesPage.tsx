@@ -137,7 +137,7 @@ export const TablesPage: React.FC = () => {
 
   return (
     <div className="p-6 bg-neutral-900 min-h-screen text-white">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+      <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-green-500">Asztalok & Szektorok</h1>
         <button
           onClick={() => (setIsModalOpen(true), setErrorMessage(null))}
@@ -171,7 +171,7 @@ export const TablesPage: React.FC = () => {
             : 'bg-neutral-900 text-neutral-400 border-neutral-700 hover:bg-neutral-750'
             }`}
         >
-          <span className={`w-2.5 h-2.5 rounded-full ${isKintEnabled ? 'bg-green-400' : 'bg-neutral-500'}`} />
+          <span className={`h-1 w-2.5 md:h-2.5 rounded-full ${isKintEnabled ? 'bg-green-400' : 'bg-neutral-500'}`} />
           {isKintEnabled ? 'KINTI TÉR NYITVA' : 'KINTI TÉR ZÁRVA'}
         </button>
       </div>
