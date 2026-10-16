@@ -212,7 +212,6 @@ const ReservationsPage: React.FC = () => {
               </tr>
             ) : (
               reservations.map((res) => {
-                const note = res.megjegyzés || (res as unknown as { megjegyzes: string }).megjegyzes;
                 return (
                   <tr key={res.id} className="hover:bg-neutral-750 transition-colors">
                     <td className="p-4">
@@ -224,8 +223,8 @@ const ReservationsPage: React.FC = () => {
                     </td>
                     <td className="p-4 font-bold text-white">{res.fo} fő</td>
                     <td className="p-4">{res.szektorNev}</td>
-                    <td className="p-4 max-w-xs truncate text-xs text-neutral-400">
-                      {note ? note : <span className="text-neutral-600 italic">-</span>}
+                    <td className="p-4 max-w-xs text-xs text-neutral-400 whitespace-normal wrap-break-words">
+                      {res.megjegyzés ? res.megjegyzés : <span className="text-neutral-500 italic">-</span>}
                     </td>
                     <td className="p-4">
                       <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${res.status === 'approved' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
@@ -235,7 +234,7 @@ const ReservationsPage: React.FC = () => {
                         {res.status}
                       </span>
                     </td>
-                    <td className="p-4 text-center space-x-2">
+                    <td className="p-4 text-center space-x-2 space-y-2">
                       {res.status === 'pending' && (
                         <>
                           <button

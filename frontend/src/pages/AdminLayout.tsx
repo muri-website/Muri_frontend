@@ -32,7 +32,7 @@ export const AdminLayout: React.FC = () => {
                 </button>
             </div>
             <aside
-                className={`fixed md:sticky md:top-0 h-screen w-64 bg-neutral-950 border-r border-neutral-800 p-6 flex flex-col justify-between shrink-0 z-50 transform transition-transform duration-200 ease-in-out ${isMobileMenuOpen ? 'translate-x-0 inset-y-0 left-0' : '-translate-x-full md:translate-x-0'}`}
+                className={`fixed md:sticky md:top-0 h-dvh w-64 bg-neutral-950 border-r border-neutral-800 p-6 pb-10 flex flex-col justify-between shrink-0 z-50 transform transition-transform duration-200 ease-in-out ${isMobileMenuOpen ? 'translate-x-0 inset-y-0 left-0' : '-translate-x-full md:translate-x-0'}`}
             >
                 <div>
                     <div className="hidden md:block mb-8">
@@ -58,7 +58,7 @@ export const AdminLayout: React.FC = () => {
                         })}
                     </nav>
                 </div>
-                <div className="pt-6 border-t border-neutral-800">
+                <div className="pt-6 pb-6 md:pb-0 border-t border-neutral-800">
                     <button
                         onClick={handleLogout}
                         className="w-full py-2.5 px-4 bg-neutral-900 hover:bg-red-600/20 hover:text-red-400 border border-neutral-800 hover:border-red-500/30 rounded-lg text-neutral-400 font-semibold text-sm transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
